@@ -1,0 +1,87 @@
+// // import { View, Text,StyleSheet } from 'react-native'
+// // import React from 'react'
+
+// // const App = () => {
+// //   return (
+// //     <View style={styles.container}>
+// //       <Text style={{color:'blue','fontSize':30,'fontWeight':300,'margin-top':100}}>Welocme To First Application</Text>
+// //     </View>
+// //   )
+// // }
+
+
+// // const styles = StyleSheet.create({
+// //   container:{
+// //     flex: 1,
+// //     backgroundColor:'#f4dbdb',
+// //   }
+// // })
+// // export default App
+
+// import { View, Text,StyleSheet } from 'react-native'
+// import React, { useState } from 'react'
+
+// const App = () => {
+
+//   const [data,setData]=useState('This is initial state of object of')
+//   return (
+//     <View style={styles.container}>
+//       <Text style={{color:'blue','fontSize':30,'fontWeight':300,'margin-top':100}}>Welocme To First Application</Text>
+//     </View>
+//   )
+// }
+
+
+// const styles = StyleSheet.create({
+//   container:{
+//     flex: 1,
+//     backgroundColor:'#f4dbdb',
+//   }
+// })
+// export default App
+
+
+import React, { useState } from 'react';
+import { FlatList, Text, View,StyleSheet } from 'react-native';
+
+const App = () => {
+  const [data, setData] = useState([
+    { id: '1', text: 'Tea' },
+    { id: '2', text: 'Coffee' },
+    { id: '3', text: 'Milk' },
+    { id: '4', text: 'Ghee' },
+    { id: '5', text: 'coffe' },
+  ]);
+
+  const renderItem = ({ item }) => (
+    <View style={styles.container}>
+      <Text style={styles.text}>{item.text}</Text>
+    </View>
+  );
+
+  return (
+    <FlatList
+      data={data}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id}
+    />
+  );
+};
+
+export default App;
+
+
+const styles= StyleSheet.create({
+  container:{
+    border: 1,
+    backgroundColor:'blue',
+    padding: 10,
+    margin:10,
+  },
+  text:{
+    color:'white',
+    fontSize:30,
+    fontFamily:'Helvetica',
+  }
+
+});
